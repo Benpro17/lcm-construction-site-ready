@@ -45,9 +45,6 @@ const Index = () => {
                 <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
                   Votre projet prêt à construire !
                 </h2>
-                <p className="text-xl text-white/90 max-w-2xl drop-shadow-md">
-                  Des solutions sur mesure pour votre maison contemporaine
-                </p>
               </div>
             </div>
           </div>
