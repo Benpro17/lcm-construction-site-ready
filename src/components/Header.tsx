@@ -14,12 +14,12 @@ const Header = () => {
           <nav>
             <ul className="flex space-x-6">
               <li>
-                <Link to="/" className="text-lcm-dark font-medium hover:text-lcm-blue transition-colors">
+                <Link to="/" className="text-lcm-dark font-medium hover:text-lcm-accent transition-colors">
                   Accueil
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-lcm-dark font-medium hover:text-lcm-blue transition-colors">
+                <Link to="/contact" className="text-lcm-dark font-medium hover:text-lcm-accent transition-colors">
                   Contact
                 </Link>
               </li>

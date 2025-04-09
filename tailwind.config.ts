@@ -54,10 +54,12 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				lcm: {
-					blue: '#3B82F6',
-					light: '#F9FAFB',
-					dark: '#1F2937',
-					gray: '#9CA3AF'
+					bronze: '#B8860B',      // Mordoré foncé
+					gold: '#D4AF37',       // Or classique
+					light: '#F9F6F0',      // Beige clair
+					dark: '#3D3D3D',       // Gris foncé
+					gray: '#9CA3AF',       // Gris (inchangé)
+					accent: '#C19A6B'      // Couleur mordorée/bronze clair
 				}
 			},
 			borderRadius: {

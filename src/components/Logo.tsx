@@ -8,6 +8,10 @@ const Logo: React.FC = () => {
         src="/lcm-logo.png" 
         alt="LCM Logo" 
         className="h-16 w-auto object-contain"
+        onError={(e) => {
+          console.error("Logo failed to load");
+          e.currentTarget.src = "https://placehold.co/200x80/F9F6F0/B8860B/?text=LCM";
+        }}
       />
     </div>
   );
