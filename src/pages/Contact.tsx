@@ -13,7 +13,7 @@ const Contact = () => {
             <h1 className="text-3xl md:text-4xl font-bold text-lcm-dark">
               Contactez-nous
             </h1>
-            <div className="h-1 w-20 bg-lcm-blue mx-auto my-4"></div>
+            <div className="h-1 w-20 bg-lcm-gold mx-auto my-4"></div>
             <p className="text-lcm-gray mt-4">
               Vous avez un projet ? N'hésitez pas à nous contacter. Nous vous répondrons dans les plus brefs délais.
             </p>
@@ -33,7 +33,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="mt-1">
-                      <Phone className="h-5 w-5 text-lcm-blue mr-3" />
+                      <Phone className="h-5 w-5 text-lcm-gold mr-3" />
                     </div>
                     <div>
                       <h3 className="font-medium text-lcm-dark">Téléphone</h3>
@@ -43,7 +43,7 @@ const Contact = () => {
                   
                   <div className="flex items-start">
                     <div className="mt-1">
-                      <MapPin className="h-5 w-5 text-lcm-blue mr-3" />
+                      <MapPin className="h-5 w-5 text-lcm-gold mr-3" />
                     </div>
                     <div>
                       <h3 className="font-medium text-lcm-dark">Adresse</h3>
@@ -53,7 +53,7 @@ const Contact = () => {
                   
                   <div className="flex items-start">
                     <div className="mt-1">
-                      <Clock className="h-5 w-5 text-lcm-blue mr-3" />
+                      <Clock className="h-5 w-5 text-lcm-gold mr-3" />
                     </div>
                     <div>
                       <h3 className="font-medium text-lcm-dark">Horaires</h3>

@@ -47,7 +47,7 @@
   }
 
   .logo-border {
-    @apply border-2 border-lcm-bronze rounded-md p-1;
+    @apply border-2 border-lcm-gold rounded-md p-1;
   }
 }
 
@@ -57,6 +57,6 @@
   }
   
   .divider {
-    @apply w-px h-16 bg-lcm-bronze mx-6;
+    @apply w-px h-16 bg-lcm-gold mx-6;
   }
 }
