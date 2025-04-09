@@ -47,7 +47,7 @@
   }
 
   .logo-border {
-    @apply border-2 border-lcm-gold rounded-md p-1;
+    @apply border border-lcm-gold rounded-md p-1;
   }
 }
 

@@ -31,39 +31,23 @@ const Index = () => {
       
       <section className="py-16 bg-white/50">
         <div className="container-custom">
-          <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-semibold text-lcm-dark mb-12">
-              Notre site sera bientôt disponible
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8 mt-10">
-              <div className="p-6 bg-white rounded-lg shadow-sm border border-gray-100 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-                <div className="w-12 h-12 bg-lcm-bronze/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lcm-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-medium mb-2">Projets sur mesure</h3>
-                <p className="text-lcm-gray">Des solutions adaptées à vos besoins spécifiques</p>
-              </div>
-              
-              <div className="p-6 bg-white rounded-lg shadow-sm border border-gray-100 animate-fade-up" style={{ animationDelay: '0.5s' }}>
-                <div className="w-12 h-12 bg-lcm-bronze/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lcm-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-medium mb-2">Qualité garantie</h3>
-                <p className="text-lcm-gray">Un travail soigné et des matériaux de qualité</p>
-              </div>
-              
-              <div className="p-6 bg-white rounded-lg shadow-sm border border-gray-100 animate-fade-up" style={{ animationDelay: '0.6s' }}>
-                <div className="w-12 h-12 bg-lcm-bronze/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lcm-bronze" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-medium mb-2">Délais respectés</h3>
-                <p className="text-lcm-gray">Livraison dans les temps et suivi régulier</p>
+          <div className="relative rounded-xl overflow-hidden h-[400px] shadow-lg">
+            <div 
+              className="absolute inset-0 bg-cover bg-center" 
+              style={{ 
+                backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')",
+                filter: "brightness(0.7)"
+              }}
+            />
+            <div className="absolute inset-0 bg-lcm-dark/30 backdrop-blur-sm"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="text-center px-6 animate-fade-up">
+                <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
+                  Votre projet prêt à construire !
+                </h2>
+                <p className="text-xl text-white/90 max-w-2xl drop-shadow-md">
+                  Des solutions sur mesure pour votre maison contemporaine
+                </p>
               </div>
             </div>
           </div>

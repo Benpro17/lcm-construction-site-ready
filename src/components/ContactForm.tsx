@@ -25,7 +25,7 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Here you would typically send the form data to your backend
+    // Here we would send the form data to ben@lecourtagemaison.fr
     // For now, we'll just simulate a successful submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -43,7 +43,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div className="space-y-4">
         <div>
           <Input 
