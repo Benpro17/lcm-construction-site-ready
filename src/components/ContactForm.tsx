@@ -9,9 +9,10 @@ import emailjs from 'emailjs-com';
 
 // Ces identifiants sont nécessaires pour EmailJS
 // Vous devrez vous inscrire sur emailjs.com et créer un compte
-const EMAILJS_SERVICE_ID = "service_id"; // À remplacer avec votre Service ID après création
-const EMAILJS_TEMPLATE_ID = "template_id"; // À remplacer avec votre Template ID après création
-const EMAILJS_USER_ID = "user_id"; // À remplacer avec votre User ID après création
+// Puis remplacer ces valeurs par vos propres identifiants
+const EMAILJS_SERVICE_ID = "service_id"; // Votre Service ID depuis emailjs.com
+const EMAILJS_TEMPLATE_ID = "template_id"; // Votre Template ID depuis emailjs.com
+const EMAILJS_PUBLIC_KEY = "public_key"; // Votre Public Key depuis emailjs.com (anciennement User ID)
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -33,6 +34,11 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
+      // Vérification que les identifiants EmailJS ont été configurés
+      if (EMAILJS_SERVICE_ID === "service_id" || EMAILJS_TEMPLATE_ID === "template_id" || EMAILJS_PUBLIC_KEY === "public_key") {
+        throw new Error("Veuillez configurer vos identifiants EmailJS avant d'utiliser le formulaire");
+      }
+      
       // Préparation des données pour EmailJS
       const templateParams = {
         to_email: 'ben@lecourtagemaison.fr',
@@ -47,7 +53,7 @@ const ContactForm = () => {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
-        EMAILJS_USER_ID
+        EMAILJS_PUBLIC_KEY
       );
       
       // Notification de succès
@@ -67,7 +73,7 @@ const ContactForm = () => {
       console.error('Erreur lors de l\'envoi de l\'email:', error);
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+        description: "Une erreur est survenue lors de l'envoi du message. Veuillez configurer EmailJS ou réessayer plus tard.",
         variant: "destructive",
       });
     } finally {
