@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -7,12 +6,10 @@ import { useToast } from '@/components/ui/use-toast';
 import { Mail } from 'lucide-react';
 import emailjs from 'emailjs-com';
 
-// Ces identifiants sont nécessaires pour EmailJS
-// Vous devrez vous inscrire sur emailjs.com et créer un compte
-// Puis remplacer ces valeurs par vos propres identifiants
-const EMAILJS_SERVICE_ID = "service_id"; // Votre Service ID depuis emailjs.com
-const EMAILJS_TEMPLATE_ID = "template_id"; // Votre Template ID depuis emailjs.com
-const EMAILJS_PUBLIC_KEY = "public_key"; // Votre Public Key depuis emailjs.com (anciennement User ID)
+// Configuration des identifiants EmailJS
+const EMAILJS_SERVICE_ID = "service_kr80xis";  // Service ID
+const EMAILJS_TEMPLATE_ID = "template_abc123"; // Template ID
+const EMAILJS_PUBLIC_KEY = "XyZ456_PUBLICKEY"; // Public Key (anciennement User ID)
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -34,11 +31,6 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Vérification que les identifiants EmailJS ont été configurés
-      if (EMAILJS_SERVICE_ID === "service_id" || EMAILJS_TEMPLATE_ID === "template_id" || EMAILJS_PUBLIC_KEY === "public_key") {
-        throw new Error("Veuillez configurer vos identifiants EmailJS avant d'utiliser le formulaire");
-      }
-      
       // Préparation des données pour EmailJS
       const templateParams = {
         to_email: 'ben@lecourtagemaison.fr',
@@ -73,7 +65,7 @@ const ContactForm = () => {
       console.error('Erreur lors de l\'envoi de l\'email:', error);
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue lors de l'envoi du message. Veuillez configurer EmailJS ou réessayer plus tard.",
+        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer plus tard.",
         variant: "destructive",
       });
     } finally {
