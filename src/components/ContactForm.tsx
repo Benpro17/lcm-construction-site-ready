@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
-import { Mail } from 'lucide-react';
+import { Mail, AlertTriangle } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import emailjs from 'emailjs-com';
 
 // Configuration des identifiants EmailJS
@@ -21,15 +22,19 @@ const ContactForm = () => {
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    // Réinitialiser le message d'erreur lorsque l'utilisateur modifie le formulaire
+    if (errorMessage) setErrorMessage(null);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage(null);
     
     try {
       console.log("Tentative d'envoi d'email avec EmailJS...");
@@ -69,11 +74,26 @@ const ContactForm = () => {
         phone: '',
         message: '',
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Erreur lors de l\'envoi de l\'email:', error);
+      
+      // Message d'erreur plus détaillé
+      let errorMsg = "Une erreur est survenue lors de l'envoi du message.";
+      
+      if (error.text && error.text.includes("Gmail_API: Request had insufficient authentication scopes")) {
+        errorMsg = "Erreur d'autorisation Gmail: Votre compte EmailJS n'a pas les autorisations suffisantes pour envoyer des emails via Gmail.";
+        setErrorMessage("Votre compte EmailJS nécessite une configuration supplémentaire. Veuillez vérifier les autorisations Gmail dans votre compte EmailJS.");
+      } else if (error.status === 401 || error.status === 403) {
+        errorMsg = "Erreur d'authentification: Vérifiez vos identifiants EmailJS.";
+      } else if (error.status === 400) {
+        errorMsg = "Erreur de requête: Vérifiez les données du formulaire.";
+      } else if (error.status === 429) {
+        errorMsg = "Trop de requêtes: Veuillez réessayer plus tard.";
+      }
+      
       toast({
         title: "Erreur",
-        description: "Une erreur est survenue lors de l'envoi du message. Vérifiez que vos identifiants EmailJS sont corrects.",
+        description: errorMsg,
         variant: "destructive",
       });
     } finally {
@@ -83,6 +103,16 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {errorMessage && (
+        <Alert variant="destructive" className="mb-4">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertTitle>Problème de configuration</AlertTitle>
+          <AlertDescription>
+            {errorMessage}
+          </AlertDescription>
+        </Alert>
+      )}
+      
       <div className="space-y-4">
         <div>
           <Input 
