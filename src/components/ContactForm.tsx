@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -8,7 +9,7 @@ import emailjs from 'emailjs-com';
 
 // Configuration des identifiants EmailJS
 const EMAILJS_SERVICE_ID = "service_kr80xis";  // Service ID
-const EMAILJS_TEMPLATE_ID = "template_abc123"; // Template ID
+const EMAILJS_TEMPLATE_ID = "template_rd84m4n"; // Template ID
 const EMAILJS_PUBLIC_KEY = "xP0FkhPgT3dk4tYLD"; // Votre clé publique EmailJS
 
 const ContactForm = () => {
